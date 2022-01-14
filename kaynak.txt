@@ -1,0 +1,5 @@
+b_isim	s_isim	kazanan
+mert-keskin	ali-murat	b
+zeynep-turgut	umur-kiris	s
+zeynep-turgut	mert-keskin	s
+umur-kiris	ali-murat	b
