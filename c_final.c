@@ -27,6 +27,7 @@ int main()
     }
     siralama(maclar);
     renk(maclar);
+    acilis(maclar);
     fclose(fptr);
     return 0;
 }
@@ -55,7 +56,7 @@ void siralama(struct mac **maclar){
             else if(!strcmp("Zeynep-Turgut",maclar[i]->b_isim)){
                 zeynep.kaz[0]++;zeynep.sure+=maclar[i]->b_sure;zeynep.hamle+=maclar[i]->hamle_say;
             }
-            else if(!strcmp("Umur-Kiris",maclar[i]->b_isim)){
+            else if(!strcmp("Umur-Kuris",maclar[i]->b_isim)){
                 umur.kaz[0]++;umur.sure+=maclar[i]->b_sure;umur.hamle+=maclar[i]->hamle_say;
             }
             else if(!strcmp("Ali-Murat",maclar[i]->b_isim)){
@@ -72,7 +73,7 @@ void siralama(struct mac **maclar){
             else if(!strcmp("Zeynep-Turgut",maclar[i]->s_isim)){
                 zeynep.kaz[1]++;zeynep.sure+=maclar[i]->s_sure;zeynep.hamle+=maclar[i]->hamle_say;
             }
-            else if(!strcmp("Umur-Kiris",maclar[i]->s_isim)){
+            else if(!strcmp("Umur-Kuris",maclar[i]->s_isim)){
                 umur.kaz[1]++;umur.sure+=maclar[i]->s_sure;umur.hamle+=maclar[i]->hamle_say;
             }
             else if(!strcmp("Ali-Murat",maclar[i]->s_isim)){
@@ -91,8 +92,8 @@ void siralama(struct mac **maclar){
     strcpy(isimler[0],"Zeynep Turgut");strcpy(isimler[1],"Mert Keskin");strcpy(isimler[2],"Umur Kuris");
     strcpy(isimler[3],"Izzet Korkmaz");strcpy(isimler[4],"Ali Murat");
     FILE *f2ptr;
-    f2ptr=fopen("hedef.txt","w+");
-    fprintf(f2ptr,"%s","-------------------------Kisilere Gore Analiz--------------------------------");
+    f2ptr=fopen("hedef.txt","w");
+    fprintf(f2ptr,"%s","\n-------------------------Kisilere Gore Analiz--------------------------------");
     for(a=0;a<5;a++){
         int puan = (ptrkisiler[a]->kaz[0]+ptrkisiler[a]->kaz[1])*2;
         int orthiz = (60*10*8-ptrkisiler[a]->sure)/(ptrkisiler[a]->hamle/2);
@@ -116,27 +117,59 @@ void renk(struct mac **maclar){
             s++;
     }
     fprintf(f2ptr,"%s","\n------------------Renge Gore Analiz--------------------\n");
-    fprintf(f2ptr,"toplam siyah galibiyeti = %d\ntoplam beyaz galibiyeti = %d",s,b);
-    printf("toplam siyah galibiyeti = %d\ntoplam beyaz galibiyeti = %d",s,b);
+    fprintf(f2ptr,"Toplam siyah galibiyeti = %d\nToplam beyaz galibiyeti = %d",s,b);
     fclose(f2ptr);
 }
 
 void acilis(struct mac **maclar){
+    int vezir[2]={0,0};int ital[2]={0,0};int hint[2]={0,0};int ruy[2]={0,0};int sic[2]={0,0};
+    int*acilislar[5];
+    acilislar[0]=vezir;acilislar[1]=ital;acilislar[2]=hint;acilislar[3]=ruy;acilislar[4]=sic;
     FILE *f2ptr;
     f2ptr=fopen("hedef.txt","a");
     int b=0;
     int s=0;
     int i=0;
     for(i=0;i<20;i++){
-        if(!strcmp("b",maclar[i]->kazanan)){
-            b++;
+        if(!strcmp("vezir-gambiti",maclar[i]->acilis)){
+            if(!strcmp("b",maclar[i]->kazanan))
+                vezir[0]++;
+            else
+                vezir[1]++;
         }
-        else if(!strcmp("s",maclar[i]->kazanan))
-            s++;
+        else if(!strcmp("italyan-oyunu",maclar[i]->acilis)){
+            if(!strcmp("b",maclar[i]->kazanan))
+                ital[0]++;
+            else
+                ital[1]++;
+        }
+        else if(!strcmp("sicilya-defansi",maclar[i]->acilis)){
+            if(!strcmp("b",maclar[i]->kazanan))
+                sic[0]++;
+            else
+                sic[1]++;
+        }
+        else if(!strcmp("ruy-lopez-acilisi",maclar[i]->acilis)){
+            if(!strcmp("b",maclar[i]->kazanan))
+                ruy[0]++;
+            else
+                ruy[1]++;
+        }
+        else if(!strcmp("sah-hint-savunmasi",maclar[i]->acilis)){
+            if(!strcmp("b",maclar[i]->kazanan))
+                hint[0]++;
+            else
+                hint[1]++;
+        }
     }
-    fprintf(f2ptr,"%s","\n------------------Renge Gore Analiz--------------------\n");
-    fprintf(f2ptr,"toplam siyah galibiyeti = %d\ntoplam beyaz galibiyeti = %d",s,b);
-    printf("toplam siyah galibiyeti = %d\ntoplam beyaz galibiyeti = %d",s,b);
+    char isimler[5][20];
+    strcpy(isimler[0],"Vezir Gambiti");strcpy(isimler[1],"Italyan Oyunu");strcpy(isimler[2],"Sicilya Defansi");
+    strcpy(isimler[3],"Ruy Lopez Acilisi");strcpy(isimler[4],"Sah Hint Savunmasi");
+    fprintf(f2ptr,"%s","\n\n-----------------Acilisa Gore Analiz-------------------\nAcilis ismi\t\tbeyaz galibiyet sayisi\t\tsiyah galibiyet sayisi\n\n");
+    int a;
+    for(a=0;a<5;a++){
+        fprintf(f2ptr,"%s\t\t\t\t%d\t\t\t\t\t%d\n",isimler[a],acilislar[a][0],acilislar[a][1]);
+        }
     fclose(f2ptr);
 }
 
@@ -144,23 +177,23 @@ void create_file(FILE* fptr){
     fptr = fopen("kaynak.txt","w");
     fputs("b_isim\ts_isim\tkazanan\tvaryant\tb_sure\ts_sure\thamle_say\n",fptr);
     fputs("Mert-Keskin\tAli-Murat\tb\titalyan-oyunu\t34\t32\t30\n",fptr);
-    fputs("Zeynep-Turgut\tUmur-Kiris\ts\tfransiz-savunmasi\t34\t32\t30\n",fptr);
+    fputs("Zeynep-Turgut\tUmur-Kuris\ts\tsah-hint-savunmasi\t34\t32\t30\n",fptr);
     fputs("Zeynep-Turgut\tMert-Keskin\ts\tsicilya-defansi\t34\t32\t30\n",fptr);
-    fputs("Umur-Kiris\tAli-Murat\tb\truy-lopez-acilisi\t34\t32\t30\n",fptr);
-    fputs("Ali-Murat\tUmur-Kiris\tb\truy-lopez-acilisi\t34\t32\t30\n",fptr);
+    fputs("Umur-Kuris\tAli-Murat\tb\truy-lopez-acilisi\t34\t32\t30\n",fptr);
+    fputs("Ali-Murat\tUmur-Kuris\tb\truy-lopez-acilisi\t34\t32\t30\n",fptr);
     fputs("Izzet-Korkmaz\tAli-Murat\tb\tsah-hint-savunmasi\t34\t32\t30\n",fptr);
     fputs("Ali-Murat\tIzzet-Korkmaz\tb\tvezir-gambiti\t34\t32\t30\n",fptr);
     fputs("Izzet-Korkmaz\tZeynep-Turgut\ts\tvezir-gambiti\t34\t32\t30\n",fptr);
     fputs("Ali-Murat\tMert-Keskin\ts\titalyan-oyunu\t34\t32\t30\n",fptr);
     fputs("Mert-Keskin\tZeynep-Turgut\ts\tsicilya-defansi\t34\t32\t30\n",fptr);
     fputs("Mert-Keskin\tIzzet-Korkmaz\tb\tsicilya-defansi\t34\t32\t30\n",fptr);
-    fputs("Izzet-Korkmaz\tMert-Keskin\tb\tfransiz-savunmasi\t24\t72\t12\n",fptr);
+    fputs("Izzet-Korkmaz\tMert-Keskin\tb\titalyan-oyunu\t24\t72\t12\n",fptr);
     fputs("Izzet-Korkmaz\tZeynep-Turgut\ts\tsicilya-defansi\t36\t332\t14\n",fptr);
-    fputs("Zeynep-Turgut\tUmur-Kiris\tb\tsicilya-defansi\t34\t32\t30\n",fptr);
-    fputs("Izzet-Korkmaz\tUmur-Kiris\tb\truy-lopez-acilisi\t26\t42\t70\n",fptr);
-    fputs("Umur-Kiris\tIzzet-Korkmaz\ts\truy-lopez-acilisi\t26\t42\t70\n",fptr);
-    fputs("Mert-Keskin\tUmur-Kiris\ts\truy-lopez-acilisi\t34\t32\t30\n",fptr);
-    fputs("Umur-Kiris\tMert-Keskin\tb\truy-lopez-acilisi\t34\t32\t30\n",fptr);
+    fputs("Zeynep-Turgut\tUmur-Kuris\tb\tsicilya-defansi\t34\t32\t30\n",fptr);
+    fputs("Izzet-Korkmaz\tUmur-Kuris\tb\truy-lopez-acilisi\t26\t42\t70\n",fptr);
+    fputs("Umur-Kuris\tIzzet-Korkmaz\ts\truy-lopez-acilisi\t26\t42\t70\n",fptr);
+    fputs("Mert-Keskin\tUmur-Kuris\ts\truy-lopez-acilisi\t34\t32\t30\n",fptr);
+    fputs("Umur-Kuris\tMert-Keskin\tb\truy-lopez-acilisi\t34\t32\t30\n",fptr);
     fputs("Zeynep-Turgut\tAli-Murat\tb\tsicilya-defansi\t34\t32\t30\n",fptr);
     fputs("Ali-Murat\tZeynep-Turgut\tb\tsicilya-defansi\t34\t32\t30\n",fptr);
     fclose(fptr);

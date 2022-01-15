@@ -1,3 +1,4 @@
+
 -------------------------Kisilere Gore Analiz--------------------------------
 Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
 Zeynep Turgut	10					2					3					64
@@ -15,5 +16,14 @@ Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
 Ali Murat	6					3					0					104
 
 ------------------Renge Gore Analiz--------------------
-toplam siyah galibiyeti = 8
-toplam beyaz galibiyeti = 12
+Toplam siyah galibiyeti = 8
+Toplam beyaz galibiyeti = 12
+
+-----------------Acilisa Gore Analiz-------------------
+Acilis ismi		beyaz galibiyet sayisi		siyah galibiyet sayisi
+
+Vezir Gambiti				1					1
+Italyan Oyunu				2					1
+Sicilya Defansi				1					1
+Ruy Lopez Acilisi				4					2
+Sah Hint Savunmasi				4					3
