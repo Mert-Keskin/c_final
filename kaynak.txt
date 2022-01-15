@@ -1,5 +1,8 @@
-b_isim	s_isim	kazanan
-mert-keskin	ali-murat	b
-zeynep-turgut	umur-kiris	s
-zeynep-turgut	mert-keskin	s
-umur-kiris	ali-murat	b
+b_isim	s_isim	kazanan	varyant	b_sure	s_sure	hamle_say
+Mert-Keskin	Ali-Murat	b	italyan-oyunu	34	32	30
+Zeynep-Turgut	Umur-Kiris	s	fransiz-savunmasi	34	32	30
+Zeynep-Turgut	Mert-Keskin	s	sicilya-defansi	34	32	30
+Umur-Kiris	Ali-Murat	b	ruy-lopez-acilisi	34	32	30
+Ali-Murat	Umur-Kiris	b	ruy-lopez-acilisi	34	32	30
+Izzet-Korkmaz	Ege-Kuzu	d	sah-hint-savunmasi	34	32	30
+Ege-Kuzu	Izzet-Korkmaz	b	vezir-gambiti	34	32	30
