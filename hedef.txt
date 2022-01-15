@@ -1,0 +1,19 @@
+-------------------------Kisilere Gore Analiz--------------------------------
+Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
+Zeynep Turgut	10					2					3					64
+
+Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
+Mert Keskin	8					2					2					77
+
+Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
+Umur Kuris	8					2					2					77
+
+Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
+Izzet Korkmaz	8					3					1					51
+
+Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
+Ali Murat	6					3					0					104
+
+------------------Renge Gore Analiz--------------------
+toplam siyah galibiyeti = 8
+toplam beyaz galibiyeti = 12

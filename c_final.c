@@ -6,6 +6,7 @@ struct mac{
 void create_file(FILE* fptr);
 void siralama(struct mac **maclar);
 void renk(struct mac **maclar);
+void acilis(struct mac **maclar);
 int main()
 {
     
@@ -87,18 +88,23 @@ void siralama(struct mac **maclar){
     ptrkisiler[3]=&izzet;ptrkisiler[4]=&ali;
     int a;
     char isimler[5][20];
-    strcpy(isimler[0],"Zeynep Turgut");strcpy(isimler[1],"Mert Keskin");strcpy(isimler[2],"Umur Kiris");
+    strcpy(isimler[0],"Zeynep Turgut");strcpy(isimler[1],"Mert Keskin");strcpy(isimler[2],"Umur Kuris");
     strcpy(isimler[3],"Izzet Korkmaz");strcpy(isimler[4],"Ali Murat");
+    FILE *f2ptr;
+    f2ptr=fopen("hedef.txt","w+");
+    fprintf(f2ptr,"%s","-------------------------Kisilere Gore Analiz--------------------------------");
     for(a=0;a<5;a++){
         int puan = (ptrkisiler[a]->kaz[0]+ptrkisiler[a]->kaz[1])*2;
         int orthiz = (60*10*8-ptrkisiler[a]->sure)/(ptrkisiler[a]->hamle/2);
-        printf("\nIsim\t\tPuan\t\tBeyazlarda kazanc\tSiyahlarda Kazanc\tOrtalama hamle hizi\n%s\t%d\t\t\t%d\t\t\t%d\t\t\t%d\n",isimler[a],puan,ptrkisiler[a]->kaz[0],ptrkisiler[a]->kaz[1],orthiz);
+        fprintf(f2ptr,"\nIsim\t\tPuan\t\tBeyazlarda kazanc\tSiyahlarda Kazanc\tOrtalama hamle hizi\n%s\t%d\t\t\t\t\t%d\t\t\t\t\t%d\t\t\t\t\t%d\n",isimler[a],puan,ptrkisiler[a]->kaz[0],ptrkisiler[a]->kaz[1],orthiz);
     }
-    
+    fclose(f2ptr);
 }
 
 
 void renk(struct mac **maclar){
+    FILE *f2ptr;
+    f2ptr=fopen("hedef.txt","a");
     int b=0;
     int s=0;
     int i=0;
@@ -109,7 +115,29 @@ void renk(struct mac **maclar){
         else if(!strcmp("s",maclar[i]->kazanan))
             s++;
     }
+    fprintf(f2ptr,"%s","\n------------------Renge Gore Analiz--------------------\n");
+    fprintf(f2ptr,"toplam siyah galibiyeti = %d\ntoplam beyaz galibiyeti = %d",s,b);
     printf("toplam siyah galibiyeti = %d\ntoplam beyaz galibiyeti = %d",s,b);
+    fclose(f2ptr);
+}
+
+void acilis(struct mac **maclar){
+    FILE *f2ptr;
+    f2ptr=fopen("hedef.txt","a");
+    int b=0;
+    int s=0;
+    int i=0;
+    for(i=0;i<20;i++){
+        if(!strcmp("b",maclar[i]->kazanan)){
+            b++;
+        }
+        else if(!strcmp("s",maclar[i]->kazanan))
+            s++;
+    }
+    fprintf(f2ptr,"%s","\n------------------Renge Gore Analiz--------------------\n");
+    fprintf(f2ptr,"toplam siyah galibiyeti = %d\ntoplam beyaz galibiyeti = %d",s,b);
+    printf("toplam siyah galibiyeti = %d\ntoplam beyaz galibiyeti = %d",s,b);
+    fclose(f2ptr);
 }
 
 void create_file(FILE* fptr){
