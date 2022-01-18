@@ -1,29 +1,29 @@
 
 -------------------------Kisilere Gore Analiz--------------------------------
-Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
-Zeynep Turgut	10					2					3					64
+Isim				Puan			Beyazlarda kazanc			Siyahlarda Kazanc		Ortalama hamle hizi (sn)
 
-Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
-Mert Keskin	8					2					2					77
+Zeynep Turgut			13				2				3					46
 
-Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
-Umur Kuris	8					2					2					77
+Mert Keskin			10				2				2					68
 
-Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
-Izzet Korkmaz	8					3					1					51
+Umur Kuris			10				2				2					56
 
-Isim		Puan		Beyazlarda kazanc	Siyahlarda Kazanc	Ortalama hamle hizi
-Ali Murat	6					3					0					104
+Izzet Korkmaz			9				3				1					47
+
+Ali Murat			6				3				0					49
 
 ------------------Renge Gore Analiz--------------------
-Toplam siyah galibiyeti = 8
-Toplam beyaz galibiyeti = 12
+Toplam beyaz galibiyeti : 12		Kazanma yuzdesi : %60.0
+Toplam siyah galibiyeti : 8		Kazanma yuzdesi : %40.0
 
 -----------------Acilisa Gore Analiz-------------------
-Acilis ismi		beyaz galibiyet sayisi		siyah galibiyet sayisi
+Acilis ismi			beyaz galibiyet sayisi				siyah galibiyet sayisi
 
-Vezir Gambiti				1					1
-Italyan Oyunu				2					1
-Sicilya Defansi				1					1
+Vezir Gambiti					1					1
+Italyan Oyunu					2					1
+Sicilya Defansi					1					1
 Ruy Lopez Acilisi				4					2
 Sah Hint Savunmasi				4					3
+
+------------------Hamle Sayisina Göre Analiz--------------------
+Karsilasmalardaki ortalama hamle sayisi : 38.9
